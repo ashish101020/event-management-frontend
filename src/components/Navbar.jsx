@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   const { loggedIn, userLogOut, user } = useEventContext();
   return (
-    <nav className="navbar">
+    <div className="navbar">
       <h2 className="navbar-logo">The Social Hub</h2>
 
       <div className="navbar-actions">
@@ -51,7 +51,7 @@ const Navbar = () => {
           </>
         )}
       </div>
-    </nav>
+    </div>
   );
 };
 
