@@ -1,0 +1,98 @@
+.profile-page {
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+  color: white;
+}
+
+.profile-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: black;
+  width: 500px;
+  height: 550px;
+  min-height: 500px;
+  border-radius: 10px;
+  padding: 10px;
+  gap: 20px;
+}
+
+.profile-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  height: 40%;
+  padding: 10px;
+  gap: 1px;
+}
+
+.profile-title {
+  color: yellowgreen;
+}
+
+.profile-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: greenyellow;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 48px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 90%;
+}
+
+.profile-input {
+  padding: 10px;
+  border: 1px solid grey;
+  border-radius: 5px;
+  outline: none;
+  width: 100%;
+}
+
+.profile-input:focus {
+  border-color: yellowgreen;
+}
+
+.avatar-btn {
+  background-color: #444;
+  color: white;
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.save-btn {
+  background-color: yellowgreen;
+  color: black;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.profile-role {
+  margin-top: 10px;
+}
+
+.organizer-btn {
+  background-color: lightgreen;
+  padding: 8px;
+  width: 40%;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}

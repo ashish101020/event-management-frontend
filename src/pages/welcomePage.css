@@ -1,0 +1,49 @@
+.welcome-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.welcome-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.welcome-title {
+  font-size: 72px;
+  margin: 0;
+}
+
+.highlight {
+  color: yellowgreen;
+}
+
+.welcome-text {
+  font-size: 24px;
+  max-width: 700px;
+}
+
+.explore-button {
+  background-color: yellowgreen;
+  font-size: 32px;
+  padding: 8px 18px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  color: black;
+  font-weight: bold;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.explore-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}

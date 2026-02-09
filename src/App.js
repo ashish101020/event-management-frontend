@@ -1,23 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route, Outlet } from "react-router-dom";
+import { WelcomePage } from "./pages/welcomePage";
+import Signup from "./components/Signup";
+import Login from "./components/Login";
+import Navbar from "./components/Navbar";
+import "./App.css";
+import Main from "./components/Main";
+import Profile from "./components/Profile";
+import Loading from "./components/Loading";
+import { useEventContext } from "./context/context";
+import Dashboard from "./components/Dashboard";
+
+// Layout with Navbar
+const LayoutWithNavbar = () => {
+  const { loading } = useEventContext();
+
+  if (loading) return <Loading />;
+
+  return (
+    <>
+      <Navbar />
+      <Outlet />
+    </>
+  );
+};
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+        {/* Landing page without navbar */}
+        <Route path="/" element={<WelcomePage />} />
+
+        {/* Pages WITH navbar */}
+        <Route element={<LayoutWithNavbar />}>
+          <Route path="/events" element={<Main />} />
+          <Route path="/events/signup" element={<Signup />} />
+          <Route path="/events/login" element={<Login />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/events/dashboard" element={<Dashboard />} />
+        </Route>
+      </Routes>
     </div>
   );
 }
