@@ -1,11 +1,14 @@
 import React from "react";
 import "./welcomePage.css";
 import { useNavigate } from "react-router-dom";
+import Navbar from "../components/Navbar";
 
 export const WelcomePage = () => {
 
     const navigate = useNavigate();
   return (
+    <>
+    <Navbar/>
     <div className="welcome-container">
       <div className="welcome-content">
         <h1 className="welcome-title">
@@ -19,5 +22,6 @@ export const WelcomePage = () => {
         <button className="explore-button" onClick={()=>{navigate('/events')}}>Explore Events</button>
       </div>
     </div>
+    </>
   );
 };
