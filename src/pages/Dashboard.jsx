@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import { useEventContext } from "../context/context";
-import RequestCard from "./RequestCard";
-import api from "./api";
+import RequestCard from "../components/RequestCard";
+import api from "../components/api";
+import Navbar from "../components/Navbar";
 
 const Dashboard = () => {
   const { requests, setRequests, user } = useEventContext();
@@ -28,6 +29,8 @@ const Dashboard = () => {
   }, [setRequests, user]);
 
   return (
+    <>
+    <Navbar/>
     <div style={{display:"flex", flexDirection:"column", alignItems:"center"}}>
       {user.role === 'Admin' && (
         <>
@@ -38,6 +41,7 @@ const Dashboard = () => {
         </>
       )}
     </div>
+    </>
   );
 };
 

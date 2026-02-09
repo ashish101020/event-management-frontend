@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import "./Signup.css";
 import { useEventContext } from "../context/context";
-import api from "./api";
+import api from "../components/api";
 import toast from "react-hot-toast";
+import Navbar from "../components/Navbar";
 
 const Signup = () => {
   const { googleLogin, userLogin, setLoading } = useEventContext();
@@ -58,6 +59,8 @@ const Signup = () => {
   };
 
   return (
+    <>
+    <Navbar/>
     <div className="container">
       <div className="inner-container">
         <h1>Sign Up</h1>
@@ -115,6 +118,7 @@ const Signup = () => {
         </p>
       </div>
     </div>
+    </>
   );
 };
 

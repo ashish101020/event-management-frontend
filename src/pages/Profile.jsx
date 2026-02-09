@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useEventContext } from "../context/context";
 import "./Profile.css";
-import api from "./api";
+import api from "../components/api";
+import Navbar from "../components/Navbar";
 
 const Profile = () => {
   const { user, requestToOrganizer, setUser } = useEventContext();
@@ -49,6 +50,8 @@ const Profile = () => {
   };
 
   return (
+    <>
+    <Navbar/>
     <div className="profile-page">
       <div className="profile-card">
         <div className="profile-header">
@@ -108,6 +111,7 @@ const Profile = () => {
         )}
       </div>
     </div>
+    </>
   );
 };
 
