@@ -67,7 +67,7 @@ const Profile = () => {
             )}
           </div>
 
-          <p>{user?.name}</p>
+          <p>{user.name}</p>
           <p>{user.email}</p>
         </div>
 
