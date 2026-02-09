@@ -40,6 +40,14 @@ const Dashboard = () => {
       ))}</div>
         </>
       )}
+      {
+        user.role === 'Participant' && (
+          <>
+          <h2>Welcome, {user.name}</h2>
+          <p>Your Registered Events</p>
+          </>
+        )
+      }
     </div>
     </>
   );
