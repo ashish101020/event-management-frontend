@@ -5,8 +5,8 @@ const Card = (event) => {
   return (
     <div>
         <h3>updated test event 123</h3>
-        <p>Location: Ranchi</p>
-        <p>Status: Upcoming</p>
+        <p>Ranchi</p>
+        <p>Upcoming</p>
       </div>
   )
 }
