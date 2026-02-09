@@ -5,7 +5,7 @@ const Events = () => {
   const { events } = useEventContext();
 
   return (
-    <div style={{ padding: "10px", display: "flex", gap: "6px", flexWrap: "wrap" }}>
+    <div style={{ padding: "10px", display: "flex", gap: "6px", flexWrap: "wrap", color:"yellowgreen" }}>
 
        <div>
       {/* {events && events.length > 0 ? (
