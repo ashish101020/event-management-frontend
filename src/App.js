@@ -34,10 +34,10 @@ function App() {
         {/* Pages WITH navbar */}
         <Route element={<LayoutWithNavbar />}>
           <Route path="/events" element={<Main />} />
-          <Route path="/events/signup" element={<Signup />} />
-          <Route path="/events/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/events/dashboard" element={<Dashboard />} />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Route>
       </Routes>
     </div>

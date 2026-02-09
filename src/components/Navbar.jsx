@@ -12,7 +12,7 @@ const Navbar = () => {
       <div className="navbar-actions">
         {loggedIn ? (
           <>
-            <Link to="/events/dashboard" className="navbar-button">
+            <Link to="/dashboard" className="navbar-button">
               Dashboard
             </Link>
             <Link to="/profile" className="navbar-button">
@@ -23,7 +23,7 @@ const Navbar = () => {
                 <Link to="/" className="navbar-button">
                   Admin
                 </Link>
-                <Link to="/events/organizerRequestsPage" className="navbar-button">
+                <Link to="/organizerRequestsPage" className="navbar-button">
                   Organizer
                 </Link>
               </>
@@ -42,10 +42,10 @@ const Navbar = () => {
           </>
         ) : (
           <>
-            <Link to="events/signup" className="navbar-button">
+            <Link to="/signup" className="navbar-button">
               SignUp
             </Link>
-            <Link to="events/login" className="navbar-button">
+            <Link to="/login" className="navbar-button">
               Login
             </Link>
           </>
