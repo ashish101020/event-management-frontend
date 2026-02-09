@@ -13,7 +13,8 @@ const Events = () => {
       ) : (
         <div style={{display:"flex", justifyContent:"center", alignContent:"center", fontSize:"72px", fontWeight:"bold", color:"white"}}>No events found</div>
       )} */}
-      <div>
+
+       <div>
         <h3>updated test event 123</h3>
         <p>Ranchi</p>
         <p>Upcoming</p>
