@@ -28,6 +28,10 @@ const Navbar = () => {
                 </Link>
               </>
             )}
+            {(user.role === "Admin" || user.role === "Organizer") && (
+              <Link to="/created-events" className="navbar-button">Created Events</Link>
+            )}
+
             <button
               className="navbar-button"
               style={{

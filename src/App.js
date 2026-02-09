@@ -6,6 +6,8 @@ import "./App.css";
 import Main from "./pages/Main";
 import Profile from "./pages/Profile";
 import Dashboard from "./pages/Dashboard";
+import EventRegistration from "./pages/EventRegistration";
+import CreatedEvents from "./pages/CreatedEvents";
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/created-events" element={<CreatedEvents />} />
+        <Route path="/event-registrations" element={<EventRegistration />} />
       </Routes>
     </div>
   );

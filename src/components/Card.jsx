@@ -1,9 +1,7 @@
-import React from 'react'
-
 const Card = (event) => {
   console.log(event);
   return (
-    <div>
+    <div style={{margin:"5px", padding:"5px", width:"200px", height:"200px", borderRadius:"8px"}}>
         <img src="" alt="" />
         <p>{event.title}</p>
         <p>{event.description}</p>
