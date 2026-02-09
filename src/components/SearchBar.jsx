@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./SearchBar.css";
 import api from "./api";
 import { useEventContext } from "../context/context";
 
 const SearchBar = () => {
   const { setEvents } = useEventContext();
+
   const [formData, setFormData] = useState({
     title: "",
     type: "",
@@ -14,27 +15,39 @@ const SearchBar = () => {
 
   const [loading, setLoading] = useState(false);
 
+  useEffect(() => {
+    const fetchAllEvents = async () => {
+      try {
+        setLoading(true);
+        const res = await api.get("/events");
+        setEvents(res.data.data || []);
+      } catch (err) {
+        console.error("Failed to fetch events:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchAllEvents();
+  }, [setEvents]);
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  // 🔍 Search with filters
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
       setLoading(true);
 
-      const token = localStorage.getItem("token");
-
-      const res = await api.get("events", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
+      const res = await api.get("/events", {
         params: {
-          title: formData.title,
-          type: formData.type,
-          location: formData.location,
-          date: formData.date,
+          title: formData.title || undefined,
+          type: formData.type || undefined,
+          location: formData.location || undefined,
+          date: formData.date || undefined,
         },
       });
 
@@ -48,7 +61,9 @@ const SearchBar = () => {
 
   return (
     <div className="searchbar-container">
-      <h1 style={{ color: "yellowgreen", margin: 0, fontSize:"48px" }}>Explore Events</h1>
+      <h1 style={{ color: "yellowgreen", margin: 0, fontSize: "48px" }}>
+        Explore Events
+      </h1>
 
       <form className="form" onSubmit={handleSubmit}>
         <input
