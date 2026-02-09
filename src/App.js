@@ -5,14 +5,9 @@ import Login from "./pages/Login";
 import "./App.css";
 import Main from "./pages/Main";
 import Profile from "./pages/Profile";
-import Loading from "./pages/Loading";
-import { useEventContext } from "./context/context";
 import Dashboard from "./pages/Dashboard";
 
 function App() {
-  const { loading } = useEventContext();
-
-  if (loading) return <Loading />;
   return (
     <div className="App">
       <Routes>
