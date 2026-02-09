@@ -30,16 +30,12 @@ const Profile = () => {
     try {
       const token = localStorage.getItem("token");
 
-      const res = await api.put(
-        "users/update-profile",
-        formData,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
+      const res = await api.put("users/update-profile", formData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "multipart/form-data",
+        },
+      });
 
       setUser((prev) => ({ ...prev, ...res.data.user }));
       alert("Profile updated successfully!");
@@ -51,66 +47,71 @@ const Profile = () => {
 
   return (
     <>
-    <Navbar/>
-    <div className="profile-page">
-      <div className="profile-card">
-        <div className="profile-header">
-          <h2 className="profile-title">Your Profile</h2>
+      <Navbar />
+      <div className="profile-page">
+        <div className="profile-card">
+          <div className="profile-header">
+            <h2 className="profile-title">Your Profile</h2>
 
-          <div className="profile-avatar">
-            {preview ? (
-              <img src={preview} alt="preview" />
-            ) : user.avatar?.url ? (
-              <img src={user.avatar.url} alt="avatar" />
-            ) : (
-              user.name?.charAt(0).toUpperCase() || "U"
-            )}
+            <div className="profile-avatar">
+              {preview ? (
+                <img src={preview} alt="preview" />
+              ) : user.avatar?.url ? (
+                <img src={user.avatar.url} alt="avatar" />
+              ) : (
+                user.name?.charAt(0).toUpperCase() || "U"
+              )}
+            </div>
+
+            <p>{user.name}</p>
+            <p>{user.email}</p>
           </div>
 
-          <p>{user.name}</p>
-          <p>{user.email}</p>
+          <form onSubmit={handleSubmit} className="profile-form">
+            <label>
+              Name
+              <input
+                className="profile-input"
+                type="text"
+                value={name}
+                name="name"
+                onChange={(e) => setName(e.target.value)}
+              />
+            </label>
+            <label>
+              Email
+              <input
+                className="profile-input"
+                type="email"
+                value={user.email}
+                disabled
+              />
+            </label>
+
+            <label className="avatar-btn">
+              Change Avatar
+              <input
+                type="file"
+                accept="image/*"
+                onChange={handleAvatarSelect}
+                hidden
+              />
+            </label>
+
+            <button type="submit" className="save-btn">
+              Save Changes
+            </button>
+          </form>
+
+          <p className="profile-role">Role: {user.role}</p>
+
+          {user.role === "Participant" && (
+            <button onClick={requestToOrganizer} className="organizer-btn">
+              Request Organizer Role
+            </button>
+          )}
         </div>
-
-        <form onSubmit={handleSubmit} className="profile-form">
-          <input
-            className="profile-input"
-            type="text"
-            value={name}
-            name="name"
-            onChange={(e) => setName(e.target.value)}
-          />
-
-          <input
-            className="profile-input"
-            type="email"
-            value={user.email}
-            disabled
-          />
-
-          <label className="avatar-btn">
-            Change Avatar
-            <input
-              type="file"
-              accept="image/*"
-              onChange={handleAvatarSelect}
-              hidden
-            />
-          </label>
-
-          <button type="submit" className="save-btn">
-            Save Changes
-          </button>
-        </form>
-
-        <p className="profile-role">Role: {user.role}</p>
-
-        {user.role === "Participant" && (
-          <button onClick={requestToOrganizer} className="organizer-btn">
-            Request Organizer Role
-          </button>
-        )}
       </div>
-    </div>
     </>
   );
 };
