@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useEventContext } from "../context/context";
 import api from "../components/api";
 import OwnCreatedCard from "../components/OwnCreatedCard";
+import Navbar from "../components/Navbar";
 
 const CreatedEvents = () => {
     const { setLoading, setEvents, events, user } = useEventContext();
@@ -22,6 +23,8 @@ const CreatedEvents = () => {
   }, [setEvents, user, setLoading]);
     
   return (
+    <>
+    <Navbar/>
     <div style={{ display: "flex", flexDirection: "column" }}>
       <div
         style={{
@@ -56,6 +59,7 @@ const CreatedEvents = () => {
         )}
       </div>
     </div>
+    </>
   );
 };
 
