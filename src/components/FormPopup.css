@@ -1,0 +1,32 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup {
+  background: #201c1c;
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.form input {
+  outline: none;
+  padding: 2px;
+  border-radius: 3px;
+}

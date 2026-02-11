@@ -3,9 +3,15 @@ import { useEventContext } from "../context/context";
 import api from "../components/api";
 import OwnCreatedCard from "../components/OwnCreatedCard";
 import Navbar from "../components/Navbar";
+import FormPopup from "../components/FormPopup";
 
 const CreatedEvents = () => {
-    const { setLoading, setEvents, events, user } = useEventContext();
+    const { setLoading, setEvents, events, user, isFormOpen, setIsFormOpen } = useEventContext();
+
+    const handleformOpen = () => {
+      setIsFormOpen(true);
+    }
+    
     useEffect(() => {
     const fetchOwnEvents = async () => {
       try {
@@ -37,6 +43,7 @@ const CreatedEvents = () => {
       >
         <h1 style={{ color: "yellowgreen" }}>Welcome Organizer!</h1>
         <button
+        onClick={handleformOpen}
           style={{
             backgroundColor: "lightgreen",
             padding: "5px",
@@ -51,13 +58,14 @@ const CreatedEvents = () => {
           + Create New Event
         </button>
       </div>
-      <div style={{display:"flex", flexWrap:"wrap"}}>
+      <div style={{display:"flex", flexWrap:"wrap", padding:"20px"}}>
         {events.length > 0 && (
             events.map((event) => (
                 <OwnCreatedCard event={event} key={event._id}/>
             ))
         )}
       </div>
+      { isFormOpen && <FormPopup/>}
     </div>
     </>
   );

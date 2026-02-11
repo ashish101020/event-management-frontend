@@ -13,6 +13,7 @@ export const EventContextProvider = ({ children }) => {
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(false);
   const [requests, setRequests] = useState([]);
+  const [isFormOpen, setIsFormOpen] = useState(false);
 
   const [user, setUser] = useState(() => {
     const storedUser = localStorage.getItem("user");
@@ -178,6 +179,7 @@ export const EventContextProvider = ({ children }) => {
         loading, setLoading,
         requests,
         setRequests,
+        isFormOpen, setIsFormOpen
       }}
     >
       {children}
